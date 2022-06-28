@@ -45,8 +45,12 @@ require("./database/connection");
 var express_1 = __importDefault(require("express"));
 var kafkajs_1 = require("kafkajs");
 var cors_1 = __importDefault(require("cors"));
+var dotenv_1 = __importDefault(require("dotenv"));
 var ReceivedUser_1 = require("./kafka/ReceivedUser");
 var AuthRoutes_1 = __importDefault(require("./routes/AuthRoutes"));
+dotenv_1.default.config({
+    path: process.env.NODE_ENV === 'dev' ? 'dev.env' : 'production.env'
+});
 var kafka = new kafkajs_1.Kafka({
     clientId: 'auth',
     brokers: ['localhost:9092'],
@@ -55,7 +59,7 @@ exports.consumerSave = kafka.consumer({ groupId: "save" });
 exports.consumerUpdate = kafka.consumer({ groupId: "update" });
 exports.consumerRemove = kafka.consumer({ groupId: "remove" });
 var app = (0, express_1.default)();
-var port = 8085;
+var port = process.env.APP_PORT;
 app.use((0, cors_1.default)());
 app.use(express_1.default.json());
 app.use(AuthRoutes_1.default);

@@ -9,7 +9,7 @@
     "start": "node dist/app.js",
     "build": "NODE_ENV=production tsc --target ES5 --experimentalDecorators --emitDecoratorMetadata",
     "dev": "NODE_ENV=dev ts-node-dev --transpile-only --ignore-watch node_modules src/app.ts",
-    "typeorm": "NODE_ENV=dev ts-node-dev ./node_modules/typeorm/cli.js"
+    "typeorm": " ts-node-dev ./node_modules/typeorm/cli.js"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",

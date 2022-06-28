@@ -3,11 +3,13 @@ import "./database/connection"
 import express from "express";
 import { Kafka } from "kafkajs";
 import cors from "cors";
-
+import dotenv from "dotenv";
 import { ReceivedUser } from "./kafka/ReceivedUser";
 import AuthRoutes from "./routes/AuthRoutes";
 
-
+dotenv.config({
+    path: process.env.NODE_ENV === 'dev' ? 'dev.env' : 'production.env'
+});
 
 const kafka = new Kafka({
     clientId: 'auth',
@@ -22,7 +24,7 @@ export const consumerRemove = kafka.consumer({ groupId: "remove" });
 
 
 const app = express();
-const port = 8085;
+const port = process.env.APP_PORT;
 
 app.use(cors())
 app.use(express.json());
