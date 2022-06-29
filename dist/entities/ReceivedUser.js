@@ -10,41 +10,38 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ReceivedUser = void 0;
-var typeorm_1 = require("typeorm");
-var ReceivedUser = /** @class */ (function () {
-    function ReceivedUser() {
-    }
-    __decorate([
-        (0, typeorm_1.PrimaryColumn)(),
-        __metadata("design:type", String)
-    ], ReceivedUser.prototype, "registerId", void 0);
-    __decorate([
-        (0, typeorm_1.Column)(),
-        __metadata("design:type", String)
-    ], ReceivedUser.prototype, "name", void 0);
-    __decorate([
-        (0, typeorm_1.Column)(),
-        __metadata("design:type", String)
-    ], ReceivedUser.prototype, "email", void 0);
-    __decorate([
-        (0, typeorm_1.Column)(),
-        __metadata("design:type", String)
-    ], ReceivedUser.prototype, "password", void 0);
-    __decorate([
-        (0, typeorm_1.Column)(),
-        __metadata("design:type", String)
-    ], ReceivedUser.prototype, "role", void 0);
-    __decorate([
-        (0, typeorm_1.Column)(),
-        __metadata("design:type", Date)
-    ], ReceivedUser.prototype, "created_at", void 0);
-    __decorate([
-        (0, typeorm_1.Column)(),
-        __metadata("design:type", Date)
-    ], ReceivedUser.prototype, "update_at", void 0);
-    ReceivedUser = __decorate([
-        (0, typeorm_1.Entity)("received_user")
-    ], ReceivedUser);
-    return ReceivedUser;
-}());
+const typeorm_1 = require("typeorm");
+let ReceivedUser = class ReceivedUser {
+};
+__decorate([
+    (0, typeorm_1.PrimaryColumn)(),
+    __metadata("design:type", String)
+], ReceivedUser.prototype, "registerId", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", String)
+], ReceivedUser.prototype, "name", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", String)
+], ReceivedUser.prototype, "email", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", String)
+], ReceivedUser.prototype, "password", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", String)
+], ReceivedUser.prototype, "role", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", Date)
+], ReceivedUser.prototype, "created_at", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", Date)
+], ReceivedUser.prototype, "update_at", void 0);
+ReceivedUser = __decorate([
+    (0, typeorm_1.Entity)("received_user")
+], ReceivedUser);
 exports.ReceivedUser = ReceivedUser;

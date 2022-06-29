@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = {
-    render: function (user) {
+    render(user) {
         return {
             id: user.registerId,
             email: user.email,

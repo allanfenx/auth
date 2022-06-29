@@ -13,7 +13,7 @@ dotenv.config({
 
 const kafka = new Kafka({
     clientId: 'auth',
-    brokers: ['localhost:9092'],
+    brokers: [String(process.env.KAFKA_PORT)],
 })
 
 export const consumerSave = kafka.consumer({ groupId: "save" });
