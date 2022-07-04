@@ -12,7 +12,7 @@ module.exports = {
     "password": process.env.DB_PASSWORD,
     "database": process.env.DB_NAME,
     "logging": false,
-    "ssl": true,
+    "ssl": false,
     "migrations": [
         process.env.TYPEORM_MIGRATION
     ],

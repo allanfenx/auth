@@ -26,7 +26,7 @@ class AuthService {
 
         const privateKey = readFileSync("./privateKey.pem");
 
-        const token = sign({ role: userFind.role, name: userFind.name, groups: [userFind.role] }, privateKey, {
+        const token = sign({ role: userFind.role, name: userFind.name, groups: userFind.role }, privateKey, {
             algorithm: 'RS256',
             subject: userFind.registerId,
             expiresIn: 6000
