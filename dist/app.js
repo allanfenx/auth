@@ -13,17 +13,23 @@ const dotenv_1 = __importDefault(require("dotenv"));
 const ReceivedUser_1 = require("./kafka/ReceivedUser");
 const AuthRoutes_1 = __importDefault(require("./routes/AuthRoutes"));
 dotenv_1.default.config({
-    path: process.env.NODE_ENV === 'dev' ? 'dev.env' : 'production.env'
+    path: process.env.NODE_ENV === 'dev' ? 'dev.env' : '.env'
 });
 const kafka = new kafkajs_1.Kafka({
-    clientId: 'auth',
-    brokers: [String(process.env.KAFKA_PORT)],
+    clientId: "auth",
+    brokers: [String(process.env.KAFKA_HOST)],
+    ssl: true,
+    sasl: {
+        mechanism: "plain",
+        username: String(process.env.KAFKA_USERNAME),
+        password: String(process.env.KAFKA_PASSWORD)
+    }
 });
 exports.consumerSave = kafka.consumer({ groupId: "save" });
 exports.consumerUpdate = kafka.consumer({ groupId: "update" });
 exports.consumerRemove = kafka.consumer({ groupId: "remove" });
 const app = (0, express_1.default)();
-const port = process.env.APP_PORT;
+const port = process.env.APP_PORT_AUTH;
 app.use((0, cors_1.default)());
 app.use(express_1.default.json());
 app.use(AuthRoutes_1.default);

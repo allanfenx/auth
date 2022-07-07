@@ -4,4 +4,4 @@ privateKey.pem
 
 publicKey.pem
 
-production.env
+.env

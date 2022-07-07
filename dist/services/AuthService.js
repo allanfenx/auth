@@ -21,7 +21,7 @@ class AuthService {
         if (!await (0, bcrypt_1.compare)(password, userFind.password))
             throw new Error("Credentials invalid");
         const privateKey = (0, fs_1.readFileSync)("./privateKey.pem");
-        const token = (0, jsonwebtoken_1.sign)({ role: userFind.role, name: userFind.name, groups: [userFind.role] }, privateKey, {
+        const token = (0, jsonwebtoken_1.sign)({ role: userFind.role, name: userFind.name, groups: userFind.role }, privateKey, {
             algorithm: 'RS256',
             subject: userFind.registerId,
             expiresIn: 6000

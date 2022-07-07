@@ -43,7 +43,7 @@ class ReceivedUser {
     }
     async remove() {
         await app_1.consumerRemove.connect();
-        await app_1.consumerRemove.subscribe({ topic: "test", fromBeginning: true });
+        await app_1.consumerRemove.subscribe({ topic: "remove_user", fromBeginning: true });
         await app_1.consumerRemove.run({
             eachMessage: async ({ topic, partition, message }) => {
                 const { value } = message;
